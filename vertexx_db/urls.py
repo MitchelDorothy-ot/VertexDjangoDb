@@ -14,10 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
 from myapp import views
+from vertexx_db import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,3 +28,7 @@ urlpatterns = [
     path('delete-book/<int:id>', views.delete_book , name='delete_book'),
     path('edit-book/<int:id> ', views.edit_book, name = 'edit_book'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+#How to upload to s3
