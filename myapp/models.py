@@ -1,3 +1,4 @@
+from django.contrib.auth.management.commands import createsuperuser
 from django.db import models
 
 CATEGORIES = [
@@ -25,3 +26,6 @@ class Book(models.Model):
 #run everytime change is made here
 # python manage.py makemigrations
 # python manage.py migrate
+
+# python manage.py createsuperuser
+# dots1234567
