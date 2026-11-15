@@ -32,7 +32,7 @@ def delete_book(request, id):
 def edit_book(request, id):
     book = get_object_or_404(Book, pk=id)
     if request.method == 'POST':
-        form = BookForm(request.POST, instance=book)
+        form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
             messages.success(request, f'{book.title} Updated Successfully')
